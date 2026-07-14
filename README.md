@@ -43,19 +43,19 @@ BlueBank is a Banking Customer Management System developed using Java Spring Boo
 
 ## Customers
 
-![Customers](screenshots/customers.png)
+![Customers](screenshots/customer.png)
 
 ---
 
 ## Add Customer
 
-![Add Customer](screenshots/addCustomer.png)
+![Add Customer](screenshots/addcustomer.png)
 
 ---
 
 ## Edit Customer
 
-![Edit Customer](screenshots/editCustomer.png)
+![Edit Customer](screenshots/editcustomer.png)
 
 ## Installation
 
