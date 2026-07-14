@@ -1,0 +1,381 @@
+/* ==========================================
+   Google Font
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+/* ==========================================
+   Body
+========================================== */
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#dbeafe,#eef6ff);
+    overflow-x:hidden;
+}
+
+/* ==========================================
+   Animated Background
+========================================== */
+
+.background-shapes{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+}
+
+.background-shapes span{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(59,130,246,.12);
+    animation:float 10s infinite ease-in-out;
+}
+
+.background-shapes span:nth-child(1){
+    width:260px;
+    height:260px;
+    top:-70px;
+    left:-80px;
+}
+
+.background-shapes span:nth-child(2){
+    width:200px;
+    height:200px;
+    right:-50px;
+    top:100px;
+}
+
+.background-shapes span:nth-child(3){
+    width:320px;
+    height:320px;
+    bottom:-120px;
+    left:45%;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-25px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+/* ==========================================
+   Card
+========================================== */
+
+.edit-card{
+
+    max-width:1050px;
+
+    margin:auto;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:28px;
+
+    padding:45px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.15);
+
+    animation:fadeIn .8s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   Header
+========================================== */
+
+.header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:25px;
+
+    margin-bottom:45px;
+
+}
+
+.avatar{
+
+    width:90px;
+
+    height:90px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+    color:white;
+
+    background:linear-gradient(135deg,#2563eb,#60a5fa);
+
+    box-shadow:0 12px 25px rgba(37,99,235,.3);
+
+}
+
+.header h2{
+
+    font-weight:700;
+
+    color:#1e3a8a;
+
+}
+
+.header p{
+
+    color:#6b7280;
+
+    margin-top:6px;
+
+}
+
+/* ==========================================
+   Section Title
+========================================== */
+
+.section-title{
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#1e40af;
+
+    margin:30px 0 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+/* ==========================================
+   Labels
+========================================== */
+
+label{
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+/* ==========================================
+   Inputs
+========================================== */
+
+.input-group-text{
+
+    background:#2563eb;
+
+    color:white;
+
+    border:none;
+
+}
+
+.form-control,
+.form-select{
+
+    border-radius:0 12px 12px 0;
+
+    border:1px solid #dbe4f0;
+
+    height:52px;
+
+    transition:.3s;
+
+}
+
+textarea.form-control{
+
+    border-radius:12px;
+
+    height:auto;
+
+}
+
+.form-control:focus,
+.form-select:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 .25rem rgba(37,99,235,.15);
+
+}
+
+/* ==========================================
+   Status
+========================================== */
+
+.status-box{
+
+    margin:25px 0;
+
+}
+
+.status-box .badge{
+
+    font-size:15px;
+
+    padding:12px 20px;
+
+    border-radius:30px;
+
+}
+
+/* ==========================================
+   Buttons
+========================================== */
+
+.button-group{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-top:35px;
+
+}
+
+.button-group .btn{
+
+    min-width:170px;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.btn-primary{
+
+    background:#2563eb;
+
+    border:none;
+
+}
+
+.btn-primary:hover{
+
+    background:#1d4ed8;
+
+    transform:translateY(-3px);
+
+}
+
+.btn-warning{
+
+    color:white;
+
+}
+
+.btn-outline-secondary:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* ==========================================
+   Copy Button
+========================================== */
+
+.input-group .btn{
+
+    border-radius:0 12px 12px 0;
+
+}
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:768px){
+
+    .edit-card{
+
+        padding:25px;
+
+    }
+
+    .header{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+    .button-group{
+
+        justify-content:center;
+
+    }
+
+    .button-group .btn{
+
+        width:100%;
+
+    }
+
+}

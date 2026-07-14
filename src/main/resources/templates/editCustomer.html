@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit Customer</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/editCustomer.css}">
+
+</head>
+
+<body>
+
+<div class="background-shapes">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="container py-5">
+
+    <div class="edit-card">
+
+        <!-- Header -->
+
+        <div class="header">
+
+            <div class="avatar"
+                 th:text="${#strings.substring(customer.fullName,0,1)}">
+                A
+            </div>
+
+            <div>
+
+                <h2>Edit Customer</h2>
+
+                <p>
+                    Update customer information securely.
+                </p>
+
+            </div>
+
+        </div>
+
+        <form th:action="@{/updateCustomer}"
+              method="post"
+              th:object="${customer}">
+
+            <input type="hidden" th:field="*{id}">
+
+            <!-- Personal Information -->
+
+            <div class="section-title">
+
+                <i class="bi bi-person-fill"></i>
+
+                Personal Information
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                    <label>Full Name</label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+
+                        <input
+                                type="text"
+                                class="form-control"
+                                th:field="*{fullName}"
+                                required>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-4">
+
+                    <label>Email</label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-envelope-fill"></i>
+                        </span>
+
+                        <input
+                                type="email"
+                                class="form-control"
+                                th:field="*{email}"
+                                required>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                    <label>Phone</label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+                            <i class="bi bi-telephone-fill"></i>
+                        </span>
+
+                        <input
+                                type="text"
+                                class="form-control"
+                                th:field="*{phone}"
+                                required>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 mb-4">
+
+                    <label>Account Number</label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            <i class="bi bi-credit-card-fill"></i>
+
+                        </span>
+
+                        <input
+                                id="accountNumber"
+                                type="text"
+                                class="form-control"
+                                th:field="*{accountNumber}"
+                                readonly>
+
+                        <button
+                                type="button"
+                                class="btn btn-outline-primary"
+                                onclick="copyAccount()">
+
+                            <i class="bi bi-copy"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Banking -->
+
+            <div class="section-title">
+
+                <i class="bi bi-bank2"></i>
+
+                Banking Information
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                    <label>Account Type</label>
+
+                    <select
+                            class="form-select"
+                            th:field="*{accountType}">
+
+                        <option value="Savings">Savings</option>
+
+                        <option value="Current">Current</option>
+
+                        <option value="Fixed Deposit">Fixed Deposit</option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 mb-4">
+
+                    <label>Balance</label>
+
+                    <div class="input-group">
+
+                        <span class="input-group-text">
+
+                            ₹
+
+                        </span>
+
+                        <input
+                                type="number"
+                                class="form-control"
+                                th:field="*{balance}">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="mb-4">
+
+                <label>Address</label>
+
+                <textarea
+                        class="form-control"
+                        rows="4"
+                        th:field="*{address}">
+                </textarea>
+
+            </div>
+
+            <!-- Status -->
+
+            <div class="status-box">
+
+                <span class="badge bg-success">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    Active Customer
+
+                </span>
+
+            </div>
+
+            <!-- Buttons -->
+
+            <div class="button-group">
+
+                <a href="/customers"
+                   class="btn btn-outline-secondary">
+
+                    <i class="bi bi-arrow-left"></i>
+
+                    Back
+
+                </a>
+
+                <button
+                        type="reset"
+                        class="btn btn-warning">
+
+                    <i class="bi bi-arrow-clockwise"></i>
+
+                    Reset
+
+                </button>
+
+                <button
+                        type="submit"
+                        class="btn btn-primary">
+
+                    <i class="bi bi-check-circle-fill"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script>
+
+function copyAccount(){
+
+    navigator.clipboard.writeText(
+
+        document.getElementById("accountNumber").value
+
+    );
+
+    alert("Account Number Copied!");
+
+}
+
+</script>
+
+</body>
+</html>
